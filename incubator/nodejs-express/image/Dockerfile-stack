@@ -25,6 +25,7 @@ ENV APPSODY_TEST_KILL=false
 COPY ./LICENSE /licenses/
 COPY ./project /project
 COPY ./config /config
+
 WORKDIR /project
 RUN npm install
 

@@ -1,8 +1,11 @@
 # Install the app dependencies in a full Node docker image
-FROM node:12
+FROM localhost:5000/node:12
 
 # librdkafka builds against libssl-dev
 RUN apt-get update && apt-get install -y libssl-dev && apt-get clean
+
+# Copy .npmrc file
+COPY .npmrc /project/
 
 # Copying individual files/folders as buildah 1.9.0 does not honour .dockerignore
 COPY package*.json /project/
